@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "sees questions" do
   scenario "see all the questions" do
-    question = Question.create(title: "Ants", description: "How many legs do ants have?")
+    question = Question.create(title: "Ants legs", description: "How many legs do ants have?")
     another_question = Question.create(title: "Lobsters?", description: "How many legs do lobsters have?")
 
     visit questions_path
