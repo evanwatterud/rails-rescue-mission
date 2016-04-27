@@ -1,7 +1,12 @@
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
 <h1><%= @question.title %></h1>
 
 <h4>Description: <%= @question.description %></h4>
 
+<%= link_to "Edit Question", edit_question_path(@question) %>
 
 <h2>Answers:</h2>
 <ul>
@@ -11,10 +16,6 @@
     <% end %>
   <% end %>
 </ul>
-
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
-<% end %>
 
 <%= form_for @answer, url: answers_path, html: { class: "new_answer", id: "new_answer" } do |f| %>
   <%= f.hidden_field :question_id, :value => @question.id %>
